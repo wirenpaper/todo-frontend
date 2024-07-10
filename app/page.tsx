@@ -23,7 +23,7 @@ export default function Home() {
       <div className="flex justify-center">
         <div className="mt-10 bg-white flex justify-center w-25rem border-2 border-black border-dashed">
           <div className="flex-row">
-            <h2 className="p-4 pl-9">Todo List</h2>
+            <h2 className="p-4 pl-9">Todo</h2>
             <form onSubmit={handleSubmit}>
               <div className="flex">
                 <input
