@@ -7,10 +7,10 @@ interface ItemProps {
 
 const Item: React.FC<ItemProps> = ({ text, onDelete }) => {
   return (
-    <div className="flex w-48 justify-between bg-green-200 mb-2">
-      <p>{text}</p>
+    <div className="flex justify-between bg-red-200 mb-2">
+      <h2>{text}</h2>
       <button onClick={onDelete} className="text-red-600 font-bold size-4">
-        x
+        <h2>x</h2>
       </button>
     </div>
   );

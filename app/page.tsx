@@ -21,8 +21,8 @@ export default function Home() {
   return (
     <>
       <div className="flex justify-center">
-        <div className="flex-row bg-green-100">
-          <h2 className="p-4 pl-9 flex justify-center">Add a task</h2>
+        <div className="flex-row">
+          <h2 className="p-4 pl-9 flex justify-center text-white">Add a task</h2>
           <form onSubmit={handleSubmit}>
             <div className="flex justify-center">
               <input
@@ -30,46 +30,52 @@ export default function Home() {
                 name="item"
                 placeholder="Add a new item"
                 className="border placeholder-gray-500 border-gray-500 
-                           mb-3 h-5 w-44 pl-1 text-custom-sm rounded-sm"
+                           mb-3 h-10 w-60 pl-1 text-xl rounded-sm"
               />
-              <button className="border border-gray-700 h-5 w-11 bg-buttonColor rounded-sm">
+              <button className="border border-gray-700 h-10 w-11 bg-buttonColor rounded-sm">
                 <p className="flex justify-center items-center text-custom-sm">
                   Add
                 </p>
               </button>
             </div>
           </form>
-          <div className="flex pb-5 bg-red-200 space-x-4">
-            <div className="flex-1">
-              <h3 className="text-center bg-orange-100">Todo</h3>
-              {items.map((text, index) => (
-                <Item
-                  key={index}
-                  text={text}
-                  onDelete={() => handleDelete(index)}
-                />
-              ))}
-            </div>
-            <div className="flex-1">
-              <h3 className="text-center bg-orange-100">pending</h3>
-              {items.map((text, index) => (
-                <Item
-                  key={index}
-                  text={text}
-                  onDelete={() => handleDelete(index)}
-                />
-              ))}
-            </div>
-            <div className="flex-1">
-              <h3 className="text-center bg-orange-100">done</h3>
-              {items.map((text, index) => (
-                <Item
-                  key={index}
-                  text={text}
-                  onDelete={() => handleDelete(index)}
-                />
-              ))}
-            </div>
+        </div>
+      </div>
+      <div className="flex pb-5 space-x-4">
+        <div className="flex-1">
+          <h2 className="text-center text-white font-bold">TODO</h2>
+          <div className="flex flex-col items-center">
+            {items.map((text, index) => (
+              <Item
+                key={index}
+                text={text}
+                onDelete={() => handleDelete(index)}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="flex-1">
+          <h2 className="text-center text-white font-bold">PENDING</h2>
+          <div className="flex flex-col items-center">
+            {items.map((text, index) => (
+              <Item
+                key={index}
+                text={text}
+                onDelete={() => handleDelete(index)}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="flex-1">
+          <h2 className="text-center text-white font-bold">DONE</h2>
+          <div className="flex flex-col items-center">
+            {items.map((text, index) => (
+              <Item
+                key={index}
+                text={text}
+                onDelete={() => handleDelete(index)}
+              />
+            ))}
           </div>
         </div>
       </div>
