@@ -22,7 +22,9 @@ export default function Home() {
     <>
       <div className="flex justify-center">
         <div className="flex-row">
-          <h2 className="p-4 pl-9 flex justify-center text-white">Add a task</h2>
+          <h2 className="p-4 pl-9 flex justify-center text-white">
+            Add a task
+          </h2>
           <form onSubmit={handleSubmit}>
             <div className="flex justify-center">
               <input
@@ -49,6 +51,7 @@ export default function Home() {
               <Item
                 key={index}
                 text={text}
+                bgColor="bg-red-200"
                 onDelete={() => handleDelete(index)}
               />
             ))}
@@ -61,6 +64,7 @@ export default function Home() {
               <Item
                 key={index}
                 text={text}
+                bgColor="bg-yellow-200"
                 onDelete={() => handleDelete(index)}
               />
             ))}
@@ -73,6 +77,7 @@ export default function Home() {
               <Item
                 key={index}
                 text={text}
+                bgColor="bg-green-200"
                 onDelete={() => handleDelete(index)}
               />
             ))}
