@@ -3,18 +3,18 @@ import { useState } from "react";
 import Item from "./item";
 
 export default function Home() {
-  const [items, setItems] = useState<string[]>([]);
+  const [ItemsTodo, setItemsTodo] = useState<string[]>([]);
 
   const handleDelete = (index: number) => {
-    setItems(items.filter((_, i) => i !== index));
+    setItemsTodo(ItemsTodo.filter((_, i) => i !== index));
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const input = form.item;
-    const newItems = [...items, input.value];
-    setItems(newItems);
+    const newItemsTodo = [...ItemsTodo, input.value];
+    setItemsTodo(newItemsTodo);
     form.reset();
   };
 
@@ -47,7 +47,7 @@ export default function Home() {
         <div className="flex-1">
           <h2 className="text-center text-white font-bold">TODO</h2>
           <div className="flex flex-col items-center">
-            {items.map((text, index) => (
+            {ItemsTodo.map((text, index) => (
               <Item
                 key={index}
                 text={text}
@@ -60,27 +60,31 @@ export default function Home() {
         <div className="flex-1">
           <h2 className="text-center text-white font-bold">PENDING</h2>
           <div className="flex flex-col items-center">
-            {items.map((text, index) => (
-              <Item
-                key={index}
-                text={text}
-                bgColor="bg-yellow-200"
-                onDelete={() => handleDelete(index)}
-              />
-            ))}
+            {/*
+              *{ItemsTodo.map((text, index) => (
+              *  <Item
+              *    key={index}
+              *    text={text}
+              *    bgColor="bg-yellow-200"
+              *    onDelete={() => handleDelete(index)}
+              *  />
+              *))}
+              */}
           </div>
         </div>
         <div className="flex-1">
           <h2 className="text-center text-white font-bold">DONE</h2>
           <div className="flex flex-col items-center">
-            {items.map((text, index) => (
-              <Item
-                key={index}
-                text={text}
-                bgColor="bg-green-200"
-                onDelete={() => handleDelete(index)}
-              />
-            ))}
+            {/*
+              *{ItemsTodo.map((text, index) => (
+              *  <Item
+              *    key={index}
+              *    text={text}
+              *    bgColor="bg-green-200"
+              *    onDelete={() => handleDelete(index)}
+              *  />
+              *))}
+              */}
           </div>
         </div>
       </div>
