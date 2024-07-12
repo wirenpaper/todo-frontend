@@ -44,8 +44,8 @@ export default function Home() {
         </div>
       </div>
       <div className="flex pb-5 space-x-4">
-        <div className="flex-1">
-          <h2 className="text-center text-white font-bold">TODO</h2>
+        <div className="flex-1 h-screen bg-red-300">
+          <h2 className="text-center font-bold">TODO</h2>
           <div className="flex flex-col items-center">
             {ItemsTodo.map((text, index) => (
               <Item
@@ -57,8 +57,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="flex-1">
-          <h2 className="text-center text-white font-bold">PENDING</h2>
+        <div className="flex-1 h-screen bg-yellow-300">
+          <h2 className="text-center font-bold">PENDING</h2>
           <div className="flex flex-col items-center">
             {/*
               *{ItemsTodo.map((text, index) => (
@@ -72,8 +72,8 @@ export default function Home() {
               */}
           </div>
         </div>
-        <div className="flex-1">
-          <h2 className="text-center text-white font-bold">DONE</h2>
+        <div className="flex-1 h-screen bg-green-300">
+          <h2 className="text-center font-bold">DONE</h2>
           <div className="flex flex-col items-center">
             {/*
               *{ItemsTodo.map((text, index) => (
