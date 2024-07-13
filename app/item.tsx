@@ -8,29 +8,39 @@ import Draggable, {
 interface ItemProps {
   text: string;
   onDelete: () => void;
+  rect: { x: number; y: number; w: number; h: number };
+  updateRect: (newRect: { x: number; y: number; w: number; h: number }) => void;
   bgColor: string;
 }
 
-const Item: React.FC<ItemProps> = ({ text, onDelete, bgColor }) => {
+const Item: React.FC<ItemProps> = ({
+  text,
+  onDelete,
+  rect,
+  updateRect,
+  bgColor,
+}) => {
   const nodeRef = useRef<HTMLDivElement>(null);
-  const [coordinates, setCoordinates] = useState({ x: 0, y: 0, w: 0, h: 0 });
+  const [coordinates, setCoordinates] = useState(rect);
 
   useEffect(() => {
     if (nodeRef.current) {
       const rect = nodeRef.current.getBoundingClientRect();
-      setCoordinates({
+      const newRect = {
         x: rect.left,
         y: rect.top,
         w: rect.width,
         h: rect.height,
-      });
+      };
+      setCoordinates(newRect);
+      updateRect(newRect);
       console.log(rect.left, rect.top);
     }
   }, []);
 
   const handleStart: DraggableEventHandler = (
-    _: DraggableEvent,
-    data: DraggableData
+    _draggableEvent: DraggableEvent,
+    _draggableData: DraggableData
   ) => {
     //console.log("starting: ", data.x + coordinates.x, data.y + coordinates.y );
     console.log(
@@ -42,8 +52,8 @@ const Item: React.FC<ItemProps> = ({ text, onDelete, bgColor }) => {
   };
 
   const handleStop: DraggableEventHandler = (
-    _: DraggableEvent,
-    data: DraggableData
+    _draggableEvent: DraggableEvent,
+    _draggableData: DraggableData
   ) => {
     //console.log("stopping:", data.x + coordinates.x, data.y + coordinates.y);
   };
